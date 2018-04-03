@@ -1,4 +1,4 @@
-FROM centeredge/nuget
+FROM ubuntu:latest
 
 # Install mono and wget
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -13,5 +13,3 @@ COPY nuget.sh /usr/bin/nuget
 # Download nuget and configure execute permissions on the script
 RUN wget -O /usr/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe \
 	&& chmod +x /usr/bin/nuget
-
-ENTRYPOINT ["/bin/bash", "/usr/bin/nuget"]
